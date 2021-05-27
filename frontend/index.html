@@ -1,0 +1,24 @@
+<script>
+    setInterval(function () {
+        fetch('http://localhost/api')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let container = document.getElementById("data-container")
+                let element = document.createElement('p');
+                element.innerHTML = JSON.stringify(data);
+                container.appendChild(element);
+
+                console.log(data);
+            });
+
+    }, 1000);
+
+
+</script>
+
+<h1> Hello from the frontend app! Can you see some message from the server? Yes? Congradulation! It works!</h1>
+<h3>Replace everything here to whatever you want.</h3>
+
+<div style="max-height:600px; overflow:scroll; border:1px solid green; padding: 10px;" id="data-container"></div>
